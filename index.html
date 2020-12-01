@@ -1,0 +1,177 @@
+<!-- Graphics Example Code.  index.html - The web page document containing the canvas (drawing surface), that launches your javascript files. //-->
+<!DOCTYPE html>
+<html lang="En">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="assets/fav.ico">
+    <script> window.tiny_graphics = {};             // Store all our JavaScipt code inside of classes here.
+    window.classes = {}
+    </script>
+    <script src="tiny-graphics.js"></script>
+    <!--  Javascript "include" files.  Any code in them gets executed as part of the page loading. //-->
+    <script src="dependencies.js"></script>
+    <script src="main-scene.js"></script>
+    <style>
+        * {
+            font-family: 'Trebuchet MS'
+        }
+
+        body {
+            background: DarkGray
+        }
+
+        div {
+            background: white
+        }
+
+        canvas {
+            width: 1080px;
+            height: 540px;
+            margin-bottom: -3px
+        }
+
+        .canvas-widget {
+            width: 1080px;
+            background: DimGray
+        }
+
+        table {
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: flex;
+            text-align: center;
+        }
+
+        table.control-box {
+            width: 1080px;
+            border: 0;
+            margin: 0;
+            max-height: 380px;
+            transition: .5s;
+            overflow-y: scroll;
+            background: rgb(173, 104, 104);
+        }
+
+        table.control-box:hover {
+            max-height: 380px
+        }
+
+        table.control-box td {
+            overflow: hidden;
+            border: 0;
+            background: rgb(173, 104, 104);
+        }
+
+        table.control-box td .control-div {
+            background: #EEEEEE;
+            height: 250px;
+            padding: 5px 30px 5px 30px;
+        }
+
+        table.control-box td * {
+            background: transparent
+        }
+
+        table.control-box .control-div td {
+            border-radius: unset
+        }
+
+        table.control-box .control-title {
+            padding: 7px 40px;
+            color: white;
+            background: rgb(143, 70, 70);
+        }
+
+        .live_string {
+            display: inline-block;
+            background: unset
+        }
+
+        table, th, td {
+            vertical-align: top;
+            white-space: nowrap
+        }
+
+        button {
+            background: rgb(100, 100, 100);
+            color: white;
+            padding: 6px;
+            transition: background .3s, transform .3s;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            cursor: pointer;
+            color: rgb(250, 221, 126)
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .link {
+            text-decoration: underline;
+            cursor: pointer
+        }
+
+        .show {
+            transform: scaleY(1);
+            height: 200px;
+            overflow: auto
+        }
+
+        .hide {
+            transform: scaleY(0);
+            height: 0px;
+            overflow: hidden
+        }
+
+        #volume {
+            display: inline;
+        }
+
+        #rotation {
+            width: 300px;
+        }
+    </style>
+    <title>Record Player Simulator</title>
+</head>
+<body>       <!-- Begin typing the next of your web page here. //-->
+
+    <div id="main-canvas" class="canvas-widget"></div>
+    <audio id="break_sound">
+        <source src="assets/audio/break.wav" type="audio/wav">
+    </audio>
+    <audio id="start_sound">
+        <source src="assets/audio/start.wav" type="audio/wav">
+    </audio>
+    <audio id="slide_sound">
+        <source src="assets/audio/slide.wav" type="audio/wav">
+    </audio>
+    <audio id="shoot_sound">
+        <source src="assets/audio/shoot.wav" type="audio/wav">
+    </audio>
+    <audio id="needl_sound">
+        <source src="assets/audio/needl.wav" type="audio/wav">
+    </audio>
+    <audio id="point_sound">
+        <source src="assets/audio/point.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        // ********************* THE ENTRY POINT OF YOUR WHOLE PROGRAM STARTS HERE *********************
+        // Use this code to embed a widget into any web page.  The widget includes a 3D WebGL area
+        // (an HTML canvas) and various panels of controls.
+
+        //const scenes = ["Transforms_Sandbox"];
+        const scenes = ["Record_Player_Simulator"];
+
+        // First, list the names of scenes we will add to our canvas.  These will register themselves
+        // with this widget's Canvas_Manager so that their code can be called upon every time a
+        // draw / keyboard / mouse event happens on the web page.
+        new Canvas_Widget("main-canvas", scenes);
+        // Use the Canvas_Widget class to display the WebGL demo.  Pass in
+        // the name of the HTML element we are to replace with the widget.
+    </script>
+</body>
+</html>
